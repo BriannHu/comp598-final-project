@@ -3,6 +3,7 @@ import argparse
 import json
 import random
 import re
+import math
 
 def load_json(fname):
     content=[]
@@ -29,20 +30,13 @@ def get_posts(content,num,maxlen):
 
     return posts
 
-def computeIDF(documents):
-    import math
+def computeIDF(words,documents):
     N = len(documents)
-
-    idfDict = dict.fromkeys(documents[0].keys(), 0)
-    for document in documents:
-        for word, val in document.items():
-            if val > 0:
-                idfDict[word] += 1
-
-    for word, val in idfDict.items():
+    
+    idfDict={}
+    for word, val in words.items():
         idfDict[word] = math.log(N / float(val))
     return idfDict
-
 def main():
         #load and random select 33 r/conservative posts from each day
     posts20_conserv=load_json("../data/trimmed_conservative_20112020.json")
@@ -70,15 +64,13 @@ def main():
 
     word_bag=[]
     for doc in title_list:
-        for match in re.finditer(r'[^.,?!\s]+|[.,?!]', doc):
+        for match in re.finditer(r'[^.,?!\s‘\'\(\)\"]+|[^.,?!\s‘\'\(\)\"]', doc):/Users/daweizhou/Desktop/COMP598/final/comp598-final-project/scripts
             word_bag.append(match.group())
-
+    word_bag=[x.lower() for x in word_bag]
     uniqueWords = set(word_bag)
     numOfWords= dict.fromkeys(uniqueWords, 0)
     for word in word_bag:
         numOfWords[word] += 1
-    #TODO: IDF showing all 0
-    IDF=computeIDF([numOfWords])
-
+    IDF=computeIDF(numOfWords,title_list)
 if __name__=='__main__':
     main()
