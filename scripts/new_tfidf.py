@@ -4,9 +4,9 @@ import json
 import random
 import math
 import numpy as np
-
+import re
 def cal_idf_p(b):
-    N=8 #TODO: the total number of topics
+    N=len(topics) 
     wordsUnique=[]
     topics_wordset={ key: set(b[key].keys()) for key in b }
     for dic in list(b.values()):
@@ -27,14 +27,12 @@ def tfidf(b,idf):
     tfidfs=dict.fromkeys(b)
     for topic in tfidfs:
         tfidf={}
-        for topic in b[topic].keys():
-            tfidf[word]=b[pony][word] * idf[word]
-        tfidfs[pony]=tfidf
+        for word in b[topic].keys():
+            tfidf[word]=b[topic][word] * idf[word]
+        tfidfs[topic]=tfidf
     return tfidfs
 
 
-topics=list(set(newb['coding']))
-topics =[x for x in topics if str(x) != 'nan']
 
 
 def get_dialogs(df):
@@ -81,11 +79,14 @@ def main():
 
     args=parser.parse_args()
     newb=pd.read_csv(args.csv)
+    global topics
+    topics=list(set(newb['coding']))
+    topics =[x for x in topics if str(x) != 'nan']
     dialog=get_dialogs(newb[newb['coding'].notna()])
     b=counts(dialog)
     newidf=cal_idf_p(b)
     newtfidf=tfidf(b,newidf)
-    print(take_top_n(newtfidf,args.out_num))
+    print(take_top_n(newtfidf,int(args.out_num)))
     return
 if __name__=='__main__':
     main()
