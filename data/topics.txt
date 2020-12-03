@@ -1,0 +1,10 @@
+LEGAL - Posts discussing legal challenges to election results and their outcomes
+STEAL - Posts alleging other side is trying to steal the election (while not specifically referring to legal challenges)
+VOTE COUNT - Posts reporting statements on vote tallying, statistics or outcomes, without alleging fraud on either side 
+POLICY - Posts talking about (whether praising, neutral or criticizing) either the president or president elect performing an act of their job, talking about or carrying out policy. (without alleging fraud)
+PERSONAL - Personal insults or compliements against the candiate or a politician in candidate's circle. Must not involve policy (otherwise goes in policy category)
+FOREIGN - Posts involving other countries
+COVID - Posts relating to covid
+MOB - Posts relating to groups of one candiates' supporters expressing outrage, protesting or threating violence.
+    Includes someone hyposizing that supporter of a candidate will express outrage, protesting or threating violence
+    (Does not include groups of policians, only groups of non-government supporters)
