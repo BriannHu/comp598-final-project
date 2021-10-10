@@ -1,0 +1,19 @@
+LEGAL - Posts discussing legal challenges to election results and their outcomes
+
+STEAL - Posts alleging other side is trying to steal the election 
+	(while not specifically referring to legal challenges)
+
+VOTE COUNT - Posts reporting statements on vote tallying, statistics or outcomes, 
+	without alleging fraud on either side 
+
+DOMESTIC - Posts talking about (whether praising, neutral or criticizing) either 
+	the president or president elect going about their job, carrying out policy, 
+	etc. (without alleging fraud)
+
+FOREIGN - Posts involving other countries
+
+COVID - Posts relating to covid
+
+MEDIA - Posts relating to how Trump and Bidens media coverage 
+	(how companies like CNN, Fox, Twitter and Facebook are 
+	treating either candidate)
